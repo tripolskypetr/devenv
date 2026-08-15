@@ -53,6 +53,9 @@ services:
       - "./:/app"
 ```
 
+Put this in the root of your project on windows and you will be able to jam into the linux host with claude installation on the same machine
+
 ```bash
 docker compose up -d
+docker compose exec app bash
 ```
