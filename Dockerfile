@@ -23,6 +23,11 @@ RUN npm install -g kill-port --verbose
 RUN npm install -g rimraf --verbose
 RUN npm install -g http-server --verbose
 
+ENV BUN_INSTALL="/root/.bun"
+ENV PATH="/root/.bun/bin:/root/.local/bin:$PATH"
+
+RUN printf '\n# devenv tools\nexport BUN_INSTALL="$HOME/.bun"\nexport PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH"\n' >> /root/.bashrc
+
 EXPOSE 60050
 
 CMD ["sleep", "infinity"]
