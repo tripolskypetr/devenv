@@ -22,6 +22,8 @@ RUN npm install -g dotenv --verbose
 RUN npm install -g kill-port --verbose
 RUN npm install -g rimraf --verbose
 RUN npm install -g http-server --verbose
+RUN npm install -g prettier --verbose
+RUN npm install -g typescript --verbose
 
 ENV BUN_INSTALL="/root/.bun"
 ENV PATH="/root/.bun/bin:/root/.local/bin:$PATH"
