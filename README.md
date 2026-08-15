@@ -1,6 +1,6 @@
 # devenv
 
-A Docker-based development environment built on Ubuntu 24.04. Preinstalled inside: Node.js 25, Bun, git, ngrok, tmux, Claude Code, and global npm packages (`pm2`, `serve`, `dotenv`, `kill-port`, `rimraf`, `http-server`).
+A Docker-based development environment built on Ubuntu 24.04. Preinstalled inside: Node.js 25, Bun, git, ngrok, tmux, Claude Code, and global npm packages (`pm2`, `serve`, `dotenv`, `kill-port`, `rimraf`, `http-server`, `prettier`, `typescript`).
 
 The container runs indefinitely (`sleep infinity`); you work inside it via `docker compose exec`. Container port `60050` is mapped to host port `80`.
 
@@ -29,6 +29,9 @@ If you need a guaranteed fresh environment (e.g. to update package versions that
 # rebuild the image, ignoring all layer cache
 docker compose build --no-cache
 
+# same, with full step-by-step build logs (installer scripts run with bash -x)
+docker compose build --no-cache --progress=plain
+
 # recreate the container from the new image
 docker compose up -d --force-recreate
 ```
@@ -49,6 +52,8 @@ services:
   app:
     image: tripolskypetr/devenv
     platform: linux/amd64
+    ports:
+      - "80:60050"
     volumes:
       - "./:/app"
 ```
