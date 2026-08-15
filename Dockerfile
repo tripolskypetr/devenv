@@ -32,4 +32,6 @@ RUN printf '\n# devenv tools\nexport BUN_INSTALL="$HOME/.bun"\nexport PATH="$BUN
 
 EXPOSE 60050
 
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
 CMD ["sleep", "infinity"]
