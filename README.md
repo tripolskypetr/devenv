@@ -44,7 +44,15 @@ docker compose up -d --build
 
 The [config/docker-compose.yaml](config/docker-compose.yaml) file does not build the image; it pulls the published `tripolskypetr/devenv` from Docker Hub:
 
+```yaml
+services:
+  app:
+    image: tripolskypetr/devenv
+    platform: linux/amd64
+    volumes:
+      - "./:/app"
+```
+
 ```bash
-cd config
 docker compose up -d
 ```
